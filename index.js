@@ -68,8 +68,10 @@ function runMatrix(matrix, matrixName) {
 			}
 		}
 	}
-
+	let counter = 0
 	while (checkedIndexes.length < totalItems) {
+		counter++
+		// TODO: Fix unnecessary loops
 		pointer.move()
 	}
 

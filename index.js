@@ -50,8 +50,8 @@ function runMatrix(matrix, matrixName) {
 		posCol: -1,
 		posRow: 0,
 		currMove: "right",
-		up: () => ({ posRow: pointer.posRow + 1, posCol: pointer.posCol }),
-		down: () => ({ posRow: pointer.posRow - 1, posCol: pointer.posCol }),
+		up: () => ({ posRow: pointer.posRow - 1, posCol: pointer.posCol }),
+		down: () => ({ posRow: pointer.posRow + 1, posCol: pointer.posCol }),
 		left: () => ({ posCol: pointer.posCol - 1, posRow: pointer.posRow }),
 		right: () => ({ posCol: pointer.posCol + 1, posRow: pointer.posRow }),
 		move: () => {
@@ -71,15 +71,14 @@ function runMatrix(matrix, matrixName) {
 	let counter = 0
 	while (checkedIndexes.length < totalItems) {
 		counter++
-		// TODO: Fix unnecessary loops
 		pointer.move()
 	}
 
-	return console.log(`${matrixName}: ${checkedValues.join(" ")}`)
+	return console.log(`${matrixName}: ${checkedValues.join(" ")} - Total loops: ${counter}`)
 }
 
 runMatrix(matrix3x3, "matrix3x3")
-// runMatrix(matrix4x4, "matrix4x4")
-// runMatrix(matrix5x5, "matrix5x5")
-// runMatrix(matrix5x4, "matrix5x4")
-// runMatrix(matrix3x4, "matrix3x4")
+runMatrix(matrix4x4, "matrix4x4")
+runMatrix(matrix5x5, "matrix5x5")
+runMatrix(matrix5x4, "matrix5x4")
+runMatrix(matrix3x4, "matrix3x4")
